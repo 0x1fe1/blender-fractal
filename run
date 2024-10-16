@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+once_stdout() {
+	clear && odin run .
+}
+
+once_program_obj() {
+	clear && odin run . > program.obj
+	echo "DONE"
+}
+
+watch_stdout() {
+	wgo -file=.odin clear :: odin run .
+}
+
+watch_program_obj() {
+	wgo -file=.odin clear :: bash -c 'odin run . > program.obj' :: echo "DONE"
+}
+
+case "$1" in
+	-o1 ) once_stdout	;;
+	-o2 ) once_program_obj	;;
+	-w1 ) watch_stdout	;;
+	-w2 ) watch_program_obj	;;
+	*) cat ./run		;;
+esac

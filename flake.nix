@@ -25,7 +25,7 @@
         default = pkgs.mkShell {
           # The Nix packages provided in the environment
           # Add any you need here
-          packages = with pkgs; [ odin ];
+          packages = with pkgs; [ odin wgo ];
 
           # Set any environment variables for your dev shell
           env = { };
